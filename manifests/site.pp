@@ -3,15 +3,8 @@
 #node 'testclient.home976.fr' {
 #    include roles::webserver
 #}
+node 'testclient.home976.fr' {
 
-class apache2 {
-  package { 'apache2':
-  ensure => installed,
-  }
-
-  service { 'apache2':
-    ensure  => true,
-    enable  => true,
-    require => Package['apache2'],
-  }
+    #include roles::webserver
+    include apache2
 }
